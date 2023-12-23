@@ -8,26 +8,39 @@ function favorites(index){
     } else {
         notesObj = JSON.parse(notes);
     }
-
+    
     let favItem = localStorage.getItem("favItem");
     if (favItem == null) {
         favObj = [];
     } else {
         favObj = JSON.parse(favItem);
     }
-
+    
     let selectedNote = notesObj[index];
     if(!isNotInFavorites(selectedNote)){
         favObj.push(selectedNote);
-        localStorage.setItem("favItem", JSON.stringify(favObj));
+        localStorage.setItem("favItem", JSON.stringify(favObj));        
+        favPopUpMenu();
+        let timOut = setTimeout(removeFavPopUp, 3000);
     }else{
         alert('this note is already in favorites')
     }
-
     showNotes();
     addFavorite();
 };
 
+// add note successfully
+let favPopUp = document.getElementById('favPopUp');
+
+function favPopUpMenu(){
+    favPopUp.style.transform = 'translateY(0px)';
+    favPopUp.style.transition = 'all 0.6s ease-in-out';
+}
+
+function removeFavPopUp(){
+    favPopUp.style.transform = 'translateY(-60px)';
+    console.log('remove')
+}
 
 // function to check the card is exist or not in favorites
 function isNotInFavorites(selectedNote){
