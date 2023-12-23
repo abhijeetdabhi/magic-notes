@@ -79,6 +79,22 @@
             margin-left: 10px;
         }
 
+        .fav-Pop-Up{
+            position: fixed;
+            left: 0;
+            top: 0;
+            transform: translateY(-60px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background-color: #d4edda;
+            padding: 10px;
+            color: #155724;
+            transition: all 0.4s ease-in-out;
+            z-index: 1;
+        }
+
         @media (max-width:321px) {
             .pop-up{
                 width: 450px;
@@ -181,6 +197,12 @@
                 <button class="deleteBtn" onclick="deleteItem(this.id)">Delete</button>
             </div>
         </div>
+    </div>
+
+
+    <!-- favorite pop-up -->
+    <div class="fav-Pop-Up" id="favPopUp">
+        <h6>Note Added Successfully Into Favorite!</h6>
     </div>
 
 
